@@ -1,0 +1,158 @@
+Step-by-Step Guide 
+
+1. Create your package structure 
+
+my-package/ 
+
+├── setup.py 
+
+├── README.md 
+
+├── LICENSE 
+
+└── my_package/ 
+
+    ├── __init__.py 
+
+    └── module.py 
+
+2. Create a setup.py file 
+
+from setuptools import setup, find_packages 
+
+  
+
+setup( 
+
+    name="my-package-name", 
+
+    version="0.0.1", 
+
+    author="Your Name", 
+
+    author_email="your.email@example.com", 
+
+    description="A short description of your package", 
+
+    long_description=open("README.md").read(), 
+
+    long_description_content_type="text/markdown", 
+
+    url="https://github.com/yourusername/your-repo", 
+
+    packages=find_packages(), 
+
+    classifiers=[ 
+
+        "Programming Language :: Python :: 3", 
+
+        "License :: OSI Approved :: MIT License", 
+
+        "Operating System :: OS Independent", 
+
+    ], 
+
+    python_requires=">=3.6", 
+
+    install_requires=[ 
+
+        # List your dependencies here 
+
+        # "requests>=2.25.0", 
+
+    ], 
+
+) 
+
+3. Install build tools 
+
+pip install --upgrade setuptools wheel twine 
+
+4. Build your package 
+
+python setup.py sdist bdist_wheel 
+
+This creates a dist/ directory with your package files. 
+
+5. Register on TestPyPI 
+
+Go to https://test.pypi.org/account/register/ 
+
+Create an account and verify your email 
+
+6. Create an API token 
+
+Go to https://test.pypi.org/manage/account/#api-tokens 
+
+Click "Add API token" 
+
+Set scope to "Entire account" or specific project 
+
+Copy the token (starts with pypi-) 
+
+7. Upload to TestPyPI 
+
+twine upload --repository testpypi dist/* 
+
+When prompted: 
+
+Username: __token__ 
+
+Password: (paste your API token) 
+
+Or upload without prompts: 
+
+twine upload --repository testpypi dist/* -u __token__ -p pypi-YOUR_TOKEN_HERE 
+
+8. Test installation 
+
+pip install --index-url https://test.pypi.org/simple/ --no-deps my-package-name 
+
+Alternative: Using .pypirc configuration 
+
+Create ~/.pypirc to avoid entering credentials each time: 
+
+[distutils] 
+
+index-servers = 
+
+    testpypi 
+
+  
+
+[testpypi] 
+
+repository = https://test.pypi.org/legacy/ 
+
+username = __token__ 
+
+password = pypi-YOUR_TOKEN_HERE 
+
+Then simply run: 
+
+twine upload --repository testpypi dist/* 
+
+That's it! Your package should now be available on test.pypi.org for testing before you publish to the real PyPI. 
+
+
+
+1️⃣ Import function without alias
+from my_package1.Greetings import greet
+print(greet("Areeb"))
+
+
+✅ Simpler, but no alias.
+Use when the function name is already short and clear.
+
+2️⃣ Import entire module
+import my_package1.Greetings as g
+print(g.greet("Areeb"))
+
+
+✅ Imports the full module, not just one function.
+Use when you need multiple functions from that module (e.g., g.greet(), g.add()).
+
+3️⃣ Import multiple functions
+from my_package1.Greetings import greet, welcome
+print(greet("Areeb"))
+print(welcome("Areeb"))

@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: this_is_my_second_practice_package
+Version: 0.0.1
+Summary: In this package I have greetings Function
+Home-page: https://github.com/Areeb-khan-CloudOrbitTechnologies
+Author: Areeb khan
+Author-email: 
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+This is a greeting funciton package

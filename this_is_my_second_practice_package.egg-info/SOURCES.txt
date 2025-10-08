@@ -1,0 +1,8 @@
+LICENSE
+setup.py
+my_package1/Greetings.py
+my_package1/__init__.py
+this_is_my_second_practice_package.egg-info/PKG-INFO
+this_is_my_second_practice_package.egg-info/SOURCES.txt
+this_is_my_second_practice_package.egg-info/dependency_links.txt
+this_is_my_second_practice_package.egg-info/top_level.txt
